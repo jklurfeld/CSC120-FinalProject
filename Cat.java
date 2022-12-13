@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 
+/** Cat class */
 public class Cat{
 
-    /* Attributes */
+    /** Attributes */
     int xCoordinate;
     int yCoordinate;
     ArrayList<Object> inventory;
@@ -10,7 +11,7 @@ public class Cat{
     //int lastX;
     //int lastY;
 
-    /* Constructor */
+    /** Constructor */
     public Cat(){
         xCoordinate = 1;
         yCoordinate = 2;
@@ -18,37 +19,38 @@ public class Cat{
     }
 
 
-    /* Accessor for xCoordinate attribute
+    /** Accessor for xCoordinate attribute
      * @return int xCoordinate of this Cat
      */
     public int getXCoordinate(){
         return xCoordinate;
     }
 
-    /* Accessor for yCoordinate attribute
+    /** Accessor for yCoordinate attribute
      * @return int yCoordinate of this Cat
      */
     public int getYCoordinate(){
         return yCoordinate;
     }
 
-    /* Accessor for inventory
+    /** Accessor for inventory
      * @return ArrayList inventory of this Cat
      */
     public ArrayList<Object> getInventory(){
         return inventory;
     }
 
-    /* Prints the player/cat's inventory */
+    /** Prints the player/cat's inventory */
     public void printInventory(){
         //lastMethod = "printInventory";
         System.out.println("Your inventory contains the following items:");
         for (int i = 0; i < inventory.size(); i++){
+            System.out.print("+ ");
             System.out.println(inventory.get(i));
         }
     }
 
-    /* Grabs an item and puts it in the inventory
+    /** Grabs an item and puts it in the inventory
      * @param String item that you want to grab
      */
     public void grab(Item i){
@@ -57,7 +59,7 @@ public class Cat{
         lastMethod = "grab_" + i;
     }
 
-    /* Makes the cat walk in the direction provided
+    /** Makes the cat walk in the direction provided
      * @param String direction is the direction to the direction to be walked in
      * @return boolean returns true if the cat was able to sucessfully walk in the direction provided
      */
@@ -121,7 +123,7 @@ public class Cat{
         }
     }
 
-    /* Main method for testing */
+    /** Main method for testing */
     public static void main(String[] args){
         
     }

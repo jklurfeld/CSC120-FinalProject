@@ -1,23 +1,26 @@
-public class Door {
+public class Door extends Item{
+    /** Attributes */
     boolean isOpen;
-    int xCoordinate;
-    int yCoordinate;
 
+    /** Constructor */
     public Door(int x, int y){
+        super(x,y);
         isOpen = false;
-        xCoordinate = x;
-        yCoordinate = y;
     }
 
+    /**
+     * Getter for the isOpen attribute
+     * @return boolean isOpen
+     */
     public boolean getIsOpen(){
         return isOpen;
     }
 
-    public int getXCoordinate(){
-        return xCoordinate;
-    }
-    
-    public int getYCoordinate(){
-        return yCoordinate;
+    /**
+     * Setter for the isOpen attribute
+     * @param isOpen what you want to change the attribute to
+     */
+    public void setIsOpen(boolean isOpen){
+        this.isOpen = isOpen;
     }
 }

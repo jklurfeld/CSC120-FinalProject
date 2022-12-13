@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+/** the Main class */
+
 public class Main {
     
     /* Main method */
@@ -13,8 +15,8 @@ public class Main {
         Kitten scruffy = new Kitten("Scruffy");
         Kitten boots = new Kitten ("Boots");
         Item bed = new Item(3,2);
-        Key redKey = new Key(3,3);
-        Key blueKey = new Key(2,1);
+        Key redKey = new Key("red", 3,3);
+        Key blueKey = new Key("blue", 2,1);
         Flashlight flashlight = new Flashlight(0,2);
         Door box = new Door(1,3);
 
@@ -29,6 +31,7 @@ public class Main {
         while (!endOfGame){
             String dialogue = input.nextLine().toLowerCase();
 
+            //calls the grab function on the specified object
             if (dialogue.contains("grab")){
                 wordFound = true;
                 cat.lastMethod = "";
@@ -98,7 +101,7 @@ public class Main {
                 }
             }
 
-            //
+            //uses the specified key to open the corresponding door
             if (dialogue.contains("use") && dialogue.contains("key")){
                 wordFound = true;
                 cat.lastMethod = "";
@@ -110,23 +113,32 @@ public class Main {
                     closet.isOpen = true;
                     System.out.println("The key unlocks the closet door. You see Mittens inside! Grab her!");
                 }
+                else if (dialogue.contains("red") && cat.getXCoordinate() == closet.getXCoordinate() && cat.getYCoordinate() == closet.getYCoordinate()){
+                    System.out.println("This red key does not fit into the blue closet door.");
+                }
+                else if (dialogue.contains("blue") && cat.getXCoordinate() == fridge.getXCoordinate() && cat.getYCoordinate() == fridge.getYCoordinate()){
+                    System.out.println("This blue key does not fit into the red fridge door.");
+                }
                 else {
                     cat.lastMethod = "";
                     System.out.println("Please enter \"use key\" and specify the key's color in order to use it.");
                 }
             }
 
+            //uses the flashlight to illuminate the bed
             if (dialogue.contains("use") && dialogue.contains("flashlight")){
                 wordFound = true;
                 cat.lastMethod = "";
                 if (cat.getXCoordinate() == bed.getXCoordinate() && cat.getYCoordinate() == bed.getYCoordinate()){
                     System.out.println("You turn on the flashlight and look under the bed. There's Boots! Grab him!");
+                    bed.setIsFound(true);
                 }
                 else {
                     System.out.println("You turn on the flashlight. It's daylight so you don't see anything new.");
                 }
             }
 
+            //responds to the user input "open"
             if (dialogue.contains("open")){
                 wordFound = true;
                 cat.lastMethod = "";
@@ -144,11 +156,13 @@ public class Main {
                 }
             }
 
+            //prints the user's inventory
             if (dialogue.contains("print inventory")){
                 wordFound = true;
                 cat.printInventory();
             }
             
+            //responds to the user input "help"
             if (dialogue.contains("help")){
                 wordFound = true;
                 System.out.println("The following are a list of available commands:");
@@ -204,7 +218,7 @@ public class Main {
                 }
                 //else (the bed has been previously illuminated)
                 else {
-                    if (cat.inventory.contains(boots)){
+                    if (!cat.inventory.contains(boots)){
                         boots.setIsFound(true);
                         System.out.println("You see Boots under the bed! Grab him!");
                     }
@@ -244,6 +258,7 @@ public class Main {
                 System.out.println("You have come across a flashlight.");
             }
 
+            //if the user doesn't input a known commands, tells them they don't know the command
             if (!wordFound){
                 System.out.println("I don't know this command. Type \"help\" for a list of commands.");
             }
