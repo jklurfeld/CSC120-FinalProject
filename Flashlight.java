@@ -1,4 +1,7 @@
-/** Flashlight class, which is a subclass of Item */
+/** 
+ * Flashlight class, a subclass of Item
+ * @author Jessica Klurfeld
+ */
 
 public class Flashlight extends Item{
     

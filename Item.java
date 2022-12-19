@@ -1,4 +1,8 @@
-/** Item class */
+/** 
+ * Item class
+ * @author Jessica Klurfeld
+ */
+
 public class Item {
     /** Attributes */
     private boolean isFound;

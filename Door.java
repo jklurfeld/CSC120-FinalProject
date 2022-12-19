@@ -1,3 +1,8 @@
+/**
+ * Door class, a subclass of Item
+ * @author Jessica Klurfeld
+ */
+
 public class Door extends Item{
     /** Attributes */
     boolean isOpen;

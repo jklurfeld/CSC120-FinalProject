@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 
-/** Cat class */
+/** 
+ * Cat class– represents a cat
+ * @author Jessica Klurfeld
+ */
 public class Cat{
 
     /** Attributes */

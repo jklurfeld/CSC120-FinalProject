@@ -1,4 +1,7 @@
-/** Kitten class, which is a subclass of Item */
+/** 
+ * Kitten class, a subclass of Item 
+ * @author Jessica Klurfeld
+*/
 
 public class Kitten extends Item{
     /** Attributes */

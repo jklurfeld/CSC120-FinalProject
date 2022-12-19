@@ -1,4 +1,7 @@
-/** Key class which is a subclass of Item */
+/** 
+ * Key class a subclass of Item 
+ * @author Jessica Klurfeld
+*/
 
 public class Key extends Item{
     /** Attributes */

@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/** 
+ * Gameloop class– combines and runs all the components of the game
+ * @author Jessica Klurfeld
+ */
+
 public class GameLoop {
     /** Attributes */
     Cat cat = new Cat();
@@ -73,6 +78,10 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Checks if the user input contains "walk" and executes the proper methods as a result
+     * @param dialogue the user's input
+     */
     public void containsWalk(String dialogue){
         if (dialogue.contains("walk")){
             wordFound = true;
@@ -94,6 +103,10 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Checks if the user input contains "use key" and updates the appropriate attributes as a result
+     * @param dialogue the user's input
+     */
     public void containsUseKey(String dialogue){
         if (dialogue.contains("use") && dialogue.contains("key")){
             wordFound = true;
@@ -119,6 +132,10 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Checks if the user input contains "use flashlight" and updates the appropriate attributes as a result
+     * @param dialogue the user's input
+     */
     public void containsUseFlashlight(String dialogue){
         if (dialogue.contains("use") && dialogue.contains("flashlight")){
             wordFound = true;
@@ -138,6 +155,10 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Checks if the user input contains "open" and updates the appropriate attributes as a result
+     * @param dialogue the user's input
+     */
     public void containsOpen(String dialogue){
         if (dialogue.contains("open")){
             wordFound = true;
@@ -157,6 +178,10 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Checks if the user is at the closet and gives them the appropriate information about their location
+     * @param dialogue the user's input
+     */
     public void atCloset(String dialogue){
         if (cat.lastMethod.equals("walk") && cat.getXCoordinate() == closet.getXCoordinate() && cat.getYCoordinate() == closet.getYCoordinate()){
             //if the closet is locked then just print that you've reached the closet and it's locked
@@ -177,6 +202,10 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Checks if the user is at the fridge and gives them the appropriate information about their location
+     * @param dialogue
+     */
     public void atFridge(String dialogue){
         if (cat.lastMethod.equals("walk") && cat.getXCoordinate() == fridge.getXCoordinate() && cat.getYCoordinate() == fridge.getYCoordinate()){
             //if the fridge is locked then just print that you've reached the fridge and it's locked
@@ -196,6 +225,10 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Checks if the user is at the bed and gives them the appropriate information about their location
+     * @param dialogue the user's input
+     */
     public void atBed(String dialogue){
         if (cat.lastMethod.equals("walk") && cat.getXCoordinate() == bed.getXCoordinate() && cat.getYCoordinate() == bed.getYCoordinate()){
             //if the bed has not been illuminated via flashlight
@@ -215,6 +248,10 @@ public class GameLoop {
         }
     }
 
+    /**
+     * Checks if the user is at the box and gives them the appropriate information about their location
+     * @param dialogue the user's input
+     */
     public void atBox(String dialogue){
         if (cat.lastMethod.equals("walk") && cat.getXCoordinate() == box.getXCoordinate() && cat.getYCoordinate() == box.getYCoordinate()){
             if (!box.isOpen){
@@ -225,17 +262,20 @@ public class GameLoop {
                     System.out.println("You have reached a box. It is empty.");
                 }
                 else{
-                    System.out.println("You see Fluffy inside. Grab her!");
+                    System.out.println("You see Fluffy inside the box. Grab her!");
                 }
             }
         }
     }
 
+    /** Main method */
     public static void main (String[] args){
+        //making a gameloop object so we can use the methods in this class
         GameLoop g = new GameLoop();
 
         Scanner input = new Scanner(System.in);
 
+        //instructions
         System.out.println("You are a tired cat mom and you've just awoken from your nap. \nOh no! Your four kittens: Mittens, Fluffy, Scruffy, and Boots are gone! You have to find them!");
         System.out.println("Start by walking around to try to find them. Type \"help\" at any point for a list of commands.");
         
